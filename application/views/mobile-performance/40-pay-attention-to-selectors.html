@@ -1,0 +1,8 @@
+<h1>Pay attention to your selectors</h1>
+<?php
+echo listview(array("Use efficient selectors",
+"avoid :pseudo selectors and attribute selectors",
+"remember selectors are read right to left",
+"use your most specific selector on the right $( \".box\" ).children( \"p\" ) much faster then $( \".box p\" )\", consider a BEM architecture for your own css ( a single class per element )"
+));
+?>

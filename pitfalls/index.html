@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>jQuery Mobile: Common Pitfalls and Gotchas</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="google-translate-customization" content="1741e4e3351c91ec-d25a8a1f444111ea-g43ba064c0c16409a-13"></meta>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+		<style type="text/css">
+			.reveal h1{
+				color:orange;
+			}
+			.reveal h2{
+				color:#6cb639;
+				text-shadow: 0 1px 0 #CCC, 
+							0 2px 0 #C9C9C9, 
+							0 3px 0 #BBB, 
+							0 4px 0 #B9B9B9, 
+							0 5px 0 #AAA, 
+							0 6px 1px rgba(0, 0, 0, 0.1), 
+							0 0 5px rgba(0, 0, 0, 0.1), 
+							0 1px 3px rgba(0, 0, 0, 0.3),
+							0 3px 5px rgba(0, 0, 0, 0.2), 
+							0 5px 10px rgba(0, 0, 0, 0.25), 
+							0 20px 20px rgba(0, 0, 0, 0.15);
+			}
+			#google_translate_element{
+				position:fixed;
+				top:0;
+				left:0;
+				z-index:99999;
+			}	
+			.reveal code{
+				text-shadow:none !important;
+				font-weight:bold !important;
+			}
+			.reveal h3{
+				color:white;
+			}
+			.reveal p, .reveeal li{
+				font-size:30px;
+			}
+			.reveal li{
+				line-height:1.6em;
+			}
+			.reveal li.short{
+				line-height:2em;
+			}
+			.reveal li.long{
+				line-height:1.1em;
+				font-size:22px;
+			}
+			.reveal li.medium{
+				line-height:1.8em;
+				font-size:28px;
+			}
+			section:last-child li.long{
+				line-height:1.3em;
+				font-size:26px;
+			}
+			#notes{
+				font-size: 16px;
+			}
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>jQuery Mobile:</h1>
+					<h2>Common Pitfalls and Gotchas</h2>
+					<p>
+						<img src ="img/pitfall.jpg" style="max-height:300px;"/><br/>
+						<small>Created by <a href="http://uglymongrel.com">Alex Schmitz</a> / <a href="http://twitter.com/alexrschmitz">@alexrschmitz</a> All slides avalible at <a href="www.uglymongrel.com/jqueryasia/"/>www.uglymongrel.com/jqueryasia/</a></small>
+					</p>
+					<aside class="notes">
+						<li>Name</li>
+						<li>member of jquery mobile team</li>
+						<li>16 years of experience</li>
+						<li>id like to talk about some common pitfalls and gotcha situations</li>
+					</aside>
+				</section>
+
+				<section>
+					<h2>jQuery Mobile can help you make fully featured mobile sites and apps</h2>
+					<p>
+						that are "Seriously cross-platform with HTML5"
+						<br/><br/>
+						<img src ="img/manufacturers.png" />
+						
+					</p>
+						<aside class="notes">
+							<li>Read slide</li>
+							<li>strive to turn a sea of browsers into a consistant experience</li>
+							<li>over 70 test devices</li>
+						</aside>
+				</section>
+				<section>
+					<h2>It's not always sunshine and rainbows though</h2>
+					<img src="img/rainbow.jpg"/>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>there are always going to be stumbling blocks</li>
+					</aside>	
+				</section>
+				
+				
+
+				<section>
+					<h2>Some times it will leave you banging your head against the wall!</h2>
+					<p>
+						<img src="img/banghead.gif"/>
+					</p>
+					<aside class="notes">
+						<li>sometimes these will leave you banging your head</li>
+						<li>hopefully i can keep this from being you</li> 
+					</aside>
+				</section>
+
+				<section>
+					<h2>When "simple" things you have done 100 times before stop working.</h2>
+					<pre><code class="notranslate"  contenteditable>
+$( document ).ready( function() {
+	$('#foo').click( function() {
+		alert('click');
+	});
+});
+					</code></pre>
+					<img src="img/abd_306.gif" />
+					<aside class="notes">
+						<li>read slide</li>
+						<li>it can be really frustrating</li>
+						<li>this example should seem really simple to any one familier with jQuery</li>
+						<li>suprise you if you addto every page it wont work</li>
+					</aside>
+				</section>
+
+				<section>
+					<h2>The most common problems can be generally broken down into 3 categories</h2>
+					<ul>
+						<li class="fragment short">Page Events & the AJAX Nav Model</li>
+						<li class="fragment short">Dynamic Content & Widgets</li>
+						<li class="fragment short">Device Bugs</li>
+					</ul>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>focus on first two</li>
+						<li>very briefly go over bugs</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Lets explore the concept of pages in jquery mobile first</h2>
+					<ul>
+						<li class="fragment medium">By default all pages are loaded via AJAX</li>
+						<li class="fragment medium">Pages are pulled into the current DOM to allow transitions</li>
+						<li class="fragment medium">Pages can be cached and remain in the DOM or removed after they are hidden</li>
+						<li class="fragment medium">A page is any div with a <code class="notranslate">data-role="page"</code></li>
+						<li class="fragment medium">There can be one or more pages in single document</li>
+						<li class="fragment medium">Pages can be dynamicly injected, pulled via ajax, or navigated to with a normal http request</li>
+					</ul>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>A little different then the traditional idea</li>
+						<li>mainly that there will be several pages in your dom at any given time</li>
+					</aside>
+				</section>
+				
+				<section>
+					<h1>
+						Now lets take a look at page events.
+					</h1>
+					<p>No matter what stage in a pages lifecycle you need to bind to.</p>
+					<p>there is an event for you</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>14 different events</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:100px;">Page Load Events<br/>(in order of execution)</h1>
+					<br/>
+					<ol>
+						<li class="fragment"><h2><code class="notranslate">pagebeforeload</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">**pageload</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">**pageloadfailed</code></h2></li>
+					</ol>
+					<p><small>** Pagebeforeload will trigger followed by either pageload or pageloadfailed based on the out come</p></small>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>called by the load page function</li>
+						<li>used by change page</li>
+						<li>can be called at anytime to load a page in the background</li>
+						<li>can be used to modify loading behivor</li>
+						<li>prevent default to handle yourself</li>
+						<li>fired when complete or failed</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:100px;">Page Change Events<br/>(in order of execution)</h1>
+					<br/>
+					<ol>
+						<li class="fragment"><h2><code class="notranslate">pagebeforechange</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">**pagechange</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">**pagechangefailed</code></h2></li>
+					</ol>
+					<p><small>** Pagebeforechange will trigger followed by either pagechange or pagechangefailed based on the out come</p></small>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>very first and last events in the page change process</li>
+						<li>before to change params</li>
+						<li>very last events after page show</li>
+						<li>signifys the entire process is complete</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:100px;">Page Transition Events<br/>(in order of execution)</h1>
+					<br/>
+					<ol>
+						<li class="fragment"><h2><code class="notranslate">pagebeforeshow</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">pagebeforehide</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">pageshow</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">pagehide</code></h2></li>
+					</ol>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>encompase the transition animation</li>
+						<li>show on page to</li>
+						<li>hide on page from</li>
+						<li>used to bind to every time a page is shown</li>
+						<li>page create or init only when page is first loaded</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:100px;">Page Initilization Events<br/>(in order of execution)</h1>
+					<br/>
+					<ol>
+						<li class="fragment"><h2><code class="notranslate">pagebeforecreate</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">pagecreate</code></h2></li>
+						<li class="fragment"><h2><code class="notranslate">pageinit</code></h2></li>
+					</ol>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>most common events for devs to bind to</li>
+						<li>before to modify raw markup before widget initalization</li>
+						<li>create for initalizing widgets this is where jqm does it</li>
+						<li>init after all initalization blanket replacment for document ready</li>
+						<li>document ready only fires once</li>
+						<li>fires every time a document is loaded</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:100px;">Page Remove Events<br/>(in order of execution)</h1>
+					<br/>
+					<ol>
+						<li class="fragment"><h2><code class="notranslate">pageremove</code></h2></li>
+					</ol>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>not much here only one event</li>
+						<li>just before page removed from dom</li>
+						<li>prevent default to prevent removal</li>
+					</aside>
+				</section>
+				<section>
+					<h2>This brings us to our first set of Gotchas!</h2>
+					<img src="img/abd_104.gif" />
+				</section>
+				<section  data-state="alert">
+					<h2>Why is only the first page of my document loaded?</h2>
+					<p class="fragment">
+						Though you can place more then one page in a single document, you can not pull in a multi-page document via AJAX.
+					</p>
+					<p class="fragment">
+						There is however a subpage plugin avalible to make this possible.
+						<a href="https://github.com/ToddThomson/jQuery-Mobile-Subpage-Widget">https://github.com/ToddThomson/jQuery-Mobile-Subpage-Widget</a>
+					</p>
+					<aside class="notes">
+						<li>read slide</li>
+					</aside>
+				</section>
+				
+				<section  data-state="alert">
+					<h2>Im trying to pass query params to a page but it's not working</h2>
+					<p class="fragment">
+						If you are trying to pass query parameters to an internal or embedded page this is not supported. <br/> There are however several plugins avalible to overcome this limitation. <br/>
+						<img src="img/abd_76.gif" height="250"/>
+					</p>
+
+					<aside class="notes">
+						<li>read slide</li>
+						<li>dat url set only once</li>
+						<li>subpage hashes</li>
+						<li>3 plugins in resources</li>. 
+					</aside>
+				</section>
+				<section  data-state="alert">
+					<h2>Im trying to pass information via the hash but it's not working</h2>
+					<p class="fragment">
+						This is because jQuery Mobile monitors the hash and uses changes to location.hash for tracking history and navigation. 
+						<img src="img/abd_78.gif" />
+					</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>will interfere with tracking and navigation</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>Im trying to use the application cache and it's not working</h2>
+					<p class="fragment">
+						Some browsers return a status of zero. This causes error handlers to be triggered in jQuery's Ajax function.
+						<p class="fragment">There is however a workaround</p>
+						<pre class="fragment"><code class="notranslate">
+$.ajaxPrefilter( function(options, originalOptions, jqXHR) {
+  if ( applicationCache &&
+    applicationCache.status != applicationCache.UNCACHED &&
+    applicationCache.status != applicationCache.OBSOLETE ) {
+     // the important bit
+	options.isLocal = true;
+  }
+});
+						</code></pre>
+					</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>One important note on this workaround is that this sets is local to true for all ajax requests weather or not they are in the manifest. This works currently because is local is only checked  As long as the cache is valid and the status is 0 so it dosent effect uncached results. This may however change in the future breaking applications using this workaround.</li>
+					</aside>
+				</section>
+				<section  data-state="alert">
+					<h2>The nav is acting erraticly</h2>
+					<h3 class="fragment">
+						There are a few known problems with the pushState plugin due to different implementations of the pop state event in browsers.
+						<br/><br/>
+						<p>The most common situation where this comes up is when you are frequently navigating between AJAX nav and non AJAX pages</p>
+					<p>If you are doing this frequently we recommend you disable the pushState plugin</p>
+					</h3>
+					
+					<aside class="notes">
+						<li>read slide</li>
+						<li>This is kind of a crazy problem across browsers</li>
+						<li>pop wrong state</li>
+						<li>pop state on wrong document</li> 
+					<aside>
+				</section>
+				<section  data-state="alert">
+					<h2>Following a deep link ( a link to scroll to an id) does not work</h2>
+					<p class="fragment">
+					<h4>
+						jQuery mobile does not support deep linking.
+					</h4>
+					<p>You can still acomplish this easily with a simple 2 line function</p>
+					<pre><code class="notranslate">
+function deepLink( id ) {
+	var pos = $(id).offset().top;
+	$.mobile.silentScroll( pos );
+}
+//Example usage
+deepLink( '#foo' );
+					</code></pre></p>
+					<p><small>**Beware in iOS 5 and android 2.3 </small></p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>framework thinks your linking to an internal page</li>
+					</aside>
+				</section>
+				<section  data-state="alert">
+					<h2>My Script / css only runs if i refresh the page!</h2>
+					<p class="fragment">
+						Items in the head of pages loaded via AJAX are not loaded. Only the first page container is loaded <code class="notranslate"><div data-role="page"></div></code>
+					</p>
+					<p class="fragment">The simplest work around is to place them in the page div</p>
+					<p class="fragment">We DO NOT recomend this though it will work for many things it is not good pratice</p>
+					<pre class="fragment"><code class="notranslate">
+&#60;div data-role="page"&#62;
+	//put your scripts and css here
+&#60;/div&#62;
+					</code></pre>
+					<p class="fragment">Use this method at your own risk. It just might come back to bite you.</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>too complex to manage resources to avoid reloading scripts</li>
+						<li>if you use this method you can run into this and many other problems</li> 
+					</aside>
+				</section>
+				<section>
+					<h2>Option 2: Refactoring</h2>
+					<p class="fragment">Load scripts dynamicly</p>
+					<pre class="fragment"><code class="notranslate">
+$( document ).on("#aboutPage", "pageinit", function() {
+	$.getScript("/js/aboutPageScript.js",function(){
+		//do stuff with aboutPageScript.js
+	});
+});
+					</code></pre>
+					<p class="fragment">Load all scripts and initialize based on pageInit</p>
+										<pre class="fragment"><code class="notranslate">
+$( document ).on("#aboutPage", "pageinit", function() {
+		//Run code specific to #aboutPage
+});
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>this is the method we recomend</li>
+						<li>ensures all pages load and work consistantly regardless of loading</li>
+						<li>slows down inital load speed but makes subsequent loads faster</li>
+					</aside>
+				</section> 
+				<section data-state="alert">
+					<img src="img/Super_Pitfall.jpg" />
+					<h2>ALL ids must be unique in your entire app / site!</h2>
+					<h3>Not just in each page</h3>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>this is because there are going to be multiple pages in the dom at once</li>
+					</aside>
+				</section>
+				<section>
+					<h1 style="font-size:75px;">Now on to our second category of common</h1>
+					<h2>Pitfalls & Gotchas</h2>
+					<div style="display:inline-block; width:45%; vertical-align:top;">
+					<img src="img/abd_263.gif" height="250"/></div>
+				</section>
+				<section>
+					<h1>Dynamic Content & Widgets</h1>
+					<h2 class="fragment">This is the number one area people have trouble with</h2>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>a lot of stumbling blocks</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Definition: Dynamic Content</h2>
+					<blockquote>
+						Dynamic content is content that is generated at the time of access by a user or that changes as a result of interaction with the user.
+					</blockquote>
+					<p>By this definition almost all content in a JQM is dynamic</p> 
+					<ul>
+						<li class="medium">A page loaded via AJAX navigation</li>
+						<li class="medium">Enhanced Form Elements</li>
+						<li class="medium">A Filtered list view</li>
+						<li class="medium">Popups</li>
+						<li class="medium">Any content you inject into a page or manipulate via javaScript</li>
+					</ul>
+					<aside class="notes">
+						<li>read slide</li>
+					</aside>
+				</section>
+				<section>
+					<h2>A few good things to remember when working with jQuery Mobile widgets</h2>
+					<ul>
+						<li>All of jQuery Mobile's enhanced form elements are widgets</li>
+						<li>Most Widgets in jQuery Mobile enhance the markup</li>
+						<li>jQuery Mobile widgets are based on the jQuery UI widget factory</li>
+						<li>all jQuery mobile widgets inherit from the mobile base widget</li>
+						<li>jQuery Mobile has 20 built in widgets</li>
+					</ul>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>text inputs, listviews, fixed toolbars, and buttons are all examples of  widgets</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Lets start with some form issues that could leave you running in circles</h2>
+					<img src="img/abd_115.gif" />
+				</section>
+				<section data-state="alert">
+					<h2>I change the styling on my button, select etc, but it has no effect</h2>
+					<p>The element you added is not the element you see</p>
+<pre><code class="notranslate">
+//Button before enhancement
+&#60;button&#62;Button element&#60;/button&#62;
+//after enhancment
+&#60;div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="null" data-iconpos="null" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" aria-disabled="false"&#62;
+	&#60;span class="ui-btn-inner ui-btn-corner-all"&#62;
+		&#60;span class="ui-btn-text">Button element&#60;/span&#62;
+	&#60;/span&#62;
+	&#60;button class="ui-btn-hidden" aria-disabled="false">Button element&#60;/button&#62;
+&#60;/div&#62;					
+</code></pre>
+					<aside class="notes">
+							<li>read slide</li>
+							<li>talked a lot about enhanced markup</li>
+							<li>this is a good example</li>
+							<li>wrapped hidden spans added</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>I change a css style and it dosen't show any change</h2>
+					<p>Check your css specificity</p>
+					<pre><code class="notranslate">
+.ui-li .ui-btn-text a.ui-link-inherit {
+    white-space: nowrap;
+}
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>just setting a style of .ui-link-inherit no effect</li>
+						<li>must be more specific</li>
+					</aside>
+				</section>
+				<section  data-state="alert">
+					<h2>I update the value of a enhanced form element programaticly but the menu dosent change</h2>
+					<p>When updating a select menu you must call refresh</p>
+					<pre><code class="notranslate">
+//refresh select
+$('select').selectmenu('refresh');
+//refresh and force rebuild
+$('select').selectmenu('refresh', true);
+//refresh button
+$( "button" ).button( "refresh" );
+//refresh Flip / Slider
+$( ".selector" ).slider( "refresh" );
+//refresh Radio / Checkbox
+$( "button" ).checkboxradio( "refresh" );
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>The element you see is not the one you added</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>My date / time / number / color inputs look different in different browsers</h2>
+					<p>Other than the basic border and color styles applied to text inputs jQuery Mobile does not enhance these. Additional control rendering is according to the browser.</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>the additional controls are rendered natively by the browser</li>
+						<li>we do not modify these in anyway</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>My range / search input is being changed to type="number" / type="text"</h2>
+					<p>These inputs are degraded to type text or number to allow for consistant look and enhancement by jQuery Mobile</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>because we want to give these maximum usability and consistant styling</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>Sometimes my custom select shows as a popup other times a dialog</h2>
+					<p>Whether a custom select shows as a dialog or popup is based on the number of options and  the amount of availble space on the screen</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>this is to allow maxusability</li>
+						<li>avoide awkward scrolling of popup</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>Calling disable on my button does not work</h2>
+					<p>Buttons that are created from a link cannot be disabled</p>
+					<p>You can however still add the class <code class="notranslate">.ui-disabled</code> via javaScript</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>html spec does not provide for a disabled attribute on links</li>
+					</aside>
+				</section>
+				<section data-state="alert">
+					<h2>Controls in my fixed header / footer are not responding behave erraticly</h2>
+					<p>There are several well known bugs in mobile browsers regarding form elements inside <code class="notranslate">position: fixed;</code> elements</p>
+					<p>Especially in Android 2.3</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>device bugs</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Now lets move on to some more general widget / dynamic content pitfalls for you to escape</h2>
+					<img src="img/abd_180.gif"/>
+				</section>
+				<section data-state="alert">
+					<h2>I'm injecting html into a page but its not being enhanced</h2>
+					<p>You must make sure the plugins are called to enhance the new elements .... simple solution is to <code class="notranslate" >trigger("create")</code> on the container so you don't have to call each plugin manually</p>
+					<pre><code class="notranslate">
+//HTML 
+&#60;form id="formid"&#62;
+	&#60;input type="search" id="searchInput"/&#62;
+	&#60;button id="submitButton"&#62;Submit&#60;/button&#62;
+&#60;/form&#62;
+//javaScript **CORRECT**
+$("#formid").trigger("create");
+//javaScript INCORRECT
+$("#serchInput").trigger("create");
+$("#submitButton").trigger("create");
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>make sure you trigger on the parent</li>
+						<li>alternatively initalize each widget directly</li>
+					</aside>
+				</section>
+				<section>
+				<h1>Now how about for a couple issues involving cloning</h1>
+				<img src="img/abd_67.gif"/>	
+				</section>
+				<section data-state="alert">
+					<h2>I clone an enhanced element but the clone dosent update / respond / look as expected</h2>
+					<img src="img/abd_216.gif"/>
+					<img src="img/clonedSelect.jpg" height="200"/>
+					<p>Instead clone the native element and then enhance it</p>
+					<aside class="notes">
+						<li>read slide</li>
+						<li>when you clone an element only cloning markup</li>
+						<li>by triggering create you are enhancing the element twice</li>
+						<li>dont clone the enhanced content</li>
+					</aside>
+				</section>	
+				<section>
+					<h2>I want to render a piece of content without jQuery Mobile enhancing it but it happens automaticaly!</h2>
+					<p>To prevent any form element from being enhanced add <code class="notranslate">data-role="none"</code></p>
+					<p>Use <code class="notranslate">data-enhance="false"</code> to stop jQuery mobile from enhancing anything inside the container.</p>
+					<p>when using <code class="notranslate">data-enhance="false"</code> you must set <code class="notranslate">$.mobile.ignoreContentEnabled</code> to true prior to initilization</p>
+					<pre><code class="notranslate">
+$(document).bind("mobileinit", function(){
+  //apply overrides here
+  $.mobile.ignoreContentEnabled = true;
+});
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+					</aside>
+				</section>
+				<section>
+					<h2>The defaults i configure are being ignored!</h2>
+					<p>defaults MUST be configured prior to initalization and before the jQuery Mobile script has been loaded</p>
+					<pre><code class="notranslate">
+&#60;script src="http://code.jquery.com/jquery-1.8.2.min.js"&#62;&#60;/script&#62;
+&#60;script&#62;
+$(document).bind("mobileinit", function(){
+  $.mobile.foo = bar;
+});	
+&#60;/script&#62;
+&#60;script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"&#62;&#60;/script&#62;
+					</code></pre>
+					<aside class="notes">
+						<li>read slide</li>
+					</aside>
+				</section>
+				<section>
+					<h1>Now for our last section</h1>
+					<h1>Device Bugs!</h1>
+				</section>
+				<section>
+					<h2>These are some NASTY bugs</h2>
+					<img src="img/the-host.jpg"/>
+					<aside class="notes">
+						<li>hardest bugs to deal with</li>
+						<li>make no sense</li>
+						<li>not always possible to fix</li>
+					</aside>	
+				</section>
+				<section>
+					<h2>The best resource for device bugs and information on them is the device bugs project on git hub</h2>
+					<p><a href="https://github.com/scottjehl/Device-Bugs/issues">https://github.com/scottjehl/Device-Bugs/issues</a></p>
+					<aside class="notes">
+						<li>contains all the device bugs we have gathered</li>
+						<li>maintained by Scot Jehl main team member</li>
+						<li>very intresting if this is something at intrests you</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Now for my favorite two nasty device specific issues and trust me these are some nasty ones!</h2>
+					<img src="img/abd_6.gif"/>
+				</section>
+				<section>
+					<h2>Position fixed elements become non responsive after a programatic scroll in iOS 5 and android 2.3</h2>
+					<p><a href="https://github.com/scottjehl/Device-Bugs/issues/1">https://github.com/scottjehl/Device-Bugs/issues/1</a></p>
+					<p>A BIG note on this one is that this is also triggered by following a deep link to an id which causes the page to scroll</p>
+					<aside class="notes">
+						<li>over 80% of android devices on 2.3</li>
+						<li>explain bug</li>
+						<li>deeplinking</li>
+						<li>fixed in 1.3</li>
+					</aside>
+				</section>
+				<section>
+					<h2>Android and <code class="notranslate">position:fixed</code> are fundamentally broken in weird ways</h2>
+					<ul>
+						<li class="long">Form elements elsewhere on the page, select menus in particular—can fail to respond to user interaction when an empty absolute positioned element is placed within a fixed position element.</li>
+						<li class="long">The above-described issue can also be triggered by an absolute positioned image inside of a fixed position element, but only when that image is using something other than its inherent dimensions.</li>
+						<li class="long">When a position: fixed element appears anywhere on a page, most 2D CSS transforms will fail. Oddly, only translate transforms seem uneffected by this</li>
+						<li class="long">Combinations position: fixed and overflow properties are best avoided, as both have been known to cause unpredictable issues in older versions of Android OS</li>
+						<li class="long">Any element that triggers the on-screen keyboard, when placed inside a position: fixed element, will fail to respond to user input when using anything other than the default keyboard. This includes Swype, XT9 or, it seems, any input method apart from the standard non-predictive keyboard.</li>
+					</ul>
+					<aside class="notes">
+						<li>Also specific to Android 2.2—this can cause entire pages to fail to respond to user interaction. This can seemingly be solved by adding any character to the absolute positioned element, including a non-breaking space, and in some cases even whitespace.</li>
+						<li> If a height or width is specified on the image using CSS, or the image src is invalid (thus having no inherent height and width), this issue can occur. If an image that is inherently, say, 50x50 pixels is placed in a fixed element and left at its inherent dimensions, this issue does not seem to occur.</li>
+						<li> Even more oddly, this issue is solved by setting a CSS opacity of .9 or below on the parent of the fixed element.</li>
+						This is a personal favorit bug of many members on the team due to the complete non sensical nature of the issue.
+					</notes>
+				</section>
+				<section>
+					<h2>The #1 thing i would like to leave you with is about what to do when you run into an issue</h2>
+					<ol>
+						<li class="long">Check the docs</li>
+						<li class="long">try and simplify your code and see if you can still reproduce the issue</li>
+						<li class="long">Ask for help in the forum and on the #jquerymobile channel on irc</li>
+						<li class="long">If you think what your running into is a bug in jQuery Mobile or even a device bug file a ticket on the issue tracker on github <a href="https://github.com/jquery/jquery-mobile/issues">https://github.com/jquery/jquery-mobile/issues</a></li>
+						<li class="long">When you file an issue make sure to follow the the Contributing Guidelines at <a href="https://github.com/jquery/jquery-mobile/blob/master/CONTRIBUTING.md">https://github.com/jquery/jquery-mobile/blob/master/CONTRIBUTING.md</a> and use the jsbin provded to make a simple test case</li>
+					</ol>
+					<aside class="notes">
+						<li>Believe it or not most of the common issues people run into are covered in the docs so i suggest this should be your first stop when your investigating an issue look at the approrite sections in the docs and look for any notes.</li>
+						<li>by simplifying your code and trying to see what exactly is casuing the issue will help you to identify the exact problem</li>
+						<li>The jQuery mobile community is great and always there in the forums and on irc to help you troubleshoot your site or app</li>
+						<li>Dont be afraid to file an issue There are multiple people every day reviewing and working on fixes for issues we try and get to your issue and respond as sooon as possible</li>
+						<li>Following these guidlines will help you get the quickest response possible and the quickest fix. We strive to make jQuery Mobile the best possible platform and we do extensive testing but our userbase is still our best resource in identifing bugs in the framework so if you notice what you belive is a bug FILE IT!</li>
+					</aside>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

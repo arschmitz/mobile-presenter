@@ -1,0 +1,48 @@
+<?php
+	$options = array(
+			"inset"=> true,
+			"theme"=> "b"
+		);
+
+	$lists = array(
+		array(
+				"href"=>"/jqm-intro/",
+				"text"=>"Intro to jQuery Mobile",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"/jquery-foundation/",
+				"text"=>"Intro to jQuery Foundation",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"/mobile-performance/",
+				"text"=>"Mobile Performance (v2)",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"/jquery-europe-video/",
+				"text"=>"jQuery Europe ( Mobile Performance V2 ) ( Video )",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"http://www.slideshare.net/AlexanderSchmitz/austin-26252266",
+				"text"=>"Mobile Performance (v1)",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"/pitfalls/",
+				"text"=>"jQuery Mobile Common Pitfalls & Gotchas ( outdated for V 1.2 & 1.3 )",
+				"ajax"=>false
+			),
+		array(
+				"href"=>"/jquery-asia-video/",
+				"text"=>"jQuery Mobile Common Pitfalls & Gotchas ( Video )",
+				"ajax"=>false
+			)
+	);
+
+	foreach( $lists as $list ) {
+		echo listview( array($list), $options );
+	}
+?>

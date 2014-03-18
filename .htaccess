@@ -1,0 +1,8 @@
+php_flag zlib.output_compression on
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+php_value short_open_tag 0
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt|css|js|images|dist|pitfalls)
+RewriteRule ^(.*)$ /index.php/$1 [L]

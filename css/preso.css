@@ -1,0 +1,102 @@
+.ui-content {
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: visible;
+}
+.preso-image-auto {
+	max-width: 100%;
+	max-height: 100%;
+}
+.preso-image-clone {
+	top: -9000px;
+	position: absolute;
+}
+.ui-page.ui-page-header-fixed.ui-page-footer-fixed{
+	padding-top:44px;
+	padding-bottom: 43px;
+}
+@media only screen and (orientation : portrait){
+	html body .ui-grid-a {
+		width:100%;
+	}
+	html body .ui-grid-a>.ui-block-a, html body .ui-grid-a>.ui-block-b {
+		clear: both;
+		width: 100%;
+	}
+	.ui-page.ui-page-header-fixed.ui-page-footer-fixed {
+		padding-bottom:400px;
+	}
+}
+html .ui-listview > li h1,  html .ui-listview > li.ui-li-static{
+	white-space: normal;
+	text-overflow: initial;
+}
+.preso-h1 {
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 1em;
+	margin: .2em;
+}
+.ui-header .preso-forward-button {
+	border-radius:.3125em;
+}
+.preso-follow-checkbox-wrapper {
+	display:inline-block;
+	margin: .2em;
+	padding: 0;
+}
+.ui-footer .ui-checkbox {
+	margin: 0;
+	padding: 0;
+}
+html .preso-checkbox-list li.ui-btn {
+	padding-left: 2.5em;
+	background: #fff;
+}
+.preso-footer-text{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	margin: 0;
+}
+html .ui-content .preso-inset-list{
+	margin:10px;
+}
+html .ui-panel.preso-panel {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	max-height: 100%;
+}
+/* Code */
+.ui-content pre,
+.ui-content code {
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	background: #e5e5e5;
+	background: rgba(0,0,0,.05);
+	padding: 0 .125em;
+}
+.ui-content pre {
+	padding: 0 1em 1.2em;
+	white-space: pre-wrap;
+}
+.ui-content pre > code {
+	padding: 0;
+	background: none;
+	font-size: .9em;
+}
+html .syntaxhighlighter {
+	background: #2a2a2a;
+	border-color: #1d1d1d;
+	color: #fff;
+	text-shadow: 0 1px 0 #111;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.toolbar {
+	display:none;
+}

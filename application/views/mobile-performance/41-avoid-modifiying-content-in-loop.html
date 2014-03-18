@@ -1,0 +1,7 @@
+<h1>Avoid modifying your content in a loop</h1>
+<?php
+echo listview(array("Can really slow things down",
+"if you have to make sure you don't read CSS props or element size / positions this will cause a re-flow on every iteration!",
+"I'm looking at you bad lazy load implementations!",
+));
+?>

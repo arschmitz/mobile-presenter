@@ -1,0 +1,24 @@
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+		<h1>$.mobile.window</h1>
+<?php
+echo listview(array("Stored reference to $( window )",
+"Useful to avoid creating a jQuery object on every use",
+));
+?>
+	</div>
+	<div class="ui-block-b">
+		<h1>$.mobile.document</h1>
+<?php
+echo listview(array("Stored reference to $( document )",
+"Useful to avoid creating a jQuery object on every use",
+));
+?>
+	</div>
+</div>
+<?php
+echo listview(array("Used internally",
+"especially useful for attaching delegated events",
+"Don't use inside widgets. Use this.document and this.window",
+));
+?>

@@ -1,0 +1,59 @@
+{
+  "name": "mobile-presenter",
+	"title": "Mobile Presenter",
+	"description": "Slide deck framework built on codeignighter and jQuery Mobile",
+	"version": "0.0.0",
+	"homepage": "http://presenter.uglymongrel.com",
+	"author": {
+		"name": "Alexander R Schmitz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/arschmitz/mobile-presenter.git"
+	},
+	"bugs": "https://github.com/arschmitz/mobile-presenter/issues",
+	"licenses": [
+		{
+			"type": "MIT"
+		}
+	],
+	"devDependencies": {
+		"async": "0.2.9",
+		"cheerio": "0.12.4",
+		"commitplease": "1.7.0",
+		"grunt": "0.4.2",
+		"grunt-bowercopy": "0.5.0",
+		"grunt-contrib-clean": "0.5.0",
+		"grunt-contrib-compress": "0.5.2",
+		"grunt-contrib-concat": "0.3.0",
+		"grunt-contrib-connect": "0.3.0",
+		"grunt-contrib-copy": "0.4.1",
+		"grunt-contrib-cssmin": "0.6.1",
+		"grunt-contrib-jshint": "0.6.3",
+		"grunt-contrib-requirejs": "0.4.1",
+		"grunt-contrib-uglify": "0.2.6",
+		"grunt-contrib-watch": "0.1.4",
+		"grunt-coveralls": "0.3.0",
+		"grunt-git-authors": "1.2.0",
+		"grunt-hash-manifest": "0.4.0",
+		"grunt-qunit-istanbul": "0.3.0",
+		"grunt-qunit-junit": "0.1.0-alpha2",
+		"jsdom": "0.8.3",
+		"load-grunt-tasks": "0.3.0",
+		"optimist": "0.6.0",
+		"requirejs": "2.1.8",
+		"scp": "0.0.3",
+		"semver": "2.2.1",
+		"underscore": "1.5.2",
+		"xmlhttprequest": "1.6.0"
+	},
+	"dependencies": {
+		"jquery": ">=1.8.3",
+		"socket.io": "0.9.16",
+		"express": "3.4.8"
+	},
+	"main": "Gruntfile.js",
+	"engines": {
+		"node": ">= 0.8.0"
+	}
+}
