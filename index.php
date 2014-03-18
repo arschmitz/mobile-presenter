@@ -27,7 +27,7 @@
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-include( "config.php" );
+include( "config-socket.php" );
 if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)

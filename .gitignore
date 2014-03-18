@@ -8,5 +8,5 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 config.json
-config.php
+config-socket.php
 node_modules/

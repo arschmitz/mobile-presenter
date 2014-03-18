@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Language" content="en" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="<?php echo SOCKETPATH; ?>/socket.io/socket.io.js" async></script>
+	<script src="<?php echo SOCKETPATH; ?>/socket.io/socket.io.js"></script>
 	<link rel="stylesheet" href="/dist/main.min.css"/>
 	<script src="/dist/main.min.js"></script>
 	<?php
