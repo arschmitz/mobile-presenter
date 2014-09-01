@@ -2,7 +2,7 @@
 	<form class="preso-follow-checkbox-wrapper">
 		<div class="ui-checkbox preso-follow-checkbox-wrapper">
 			<label for="follow" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off">Follow Along</label>
-			<input type="checkbox" name="checkbox-enhanced" id="follow" data-enhanced="true">
+			<input type="checkbox" name="checkbox-enhanced" id="follow" data-enhanced="true" <?php if( $follow ) echo "checked"; ?>>
 		</div>
 	</form>
 	<h2 class="preso-footer-text ui-title">Alexander Schmitz Twitter: @alexrschmitz github & irc: arschmitz</h2>

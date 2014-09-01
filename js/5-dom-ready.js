@@ -144,6 +144,7 @@
 
 	$(function(){
 		SyntaxHighlighter.all();
+		//$( ".preso-presenter-frame" ).width( $( window ).width() / 2 );
 	});
 
 })( jQuery );

@@ -67,6 +67,12 @@ html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
 	.ui-page.ui-page-header-fixed.ui-page-footer-fixed {
 		padding-bottom:400px;
 	}
+	.ui-block-a, iframe{
+		display:none;
+	}
+	.ui-block-b{
+		width:100%;
+	}
 }
 html .ui-listview > li h1,  html .ui-listview > li.ui-li-static{
 	white-space: normal;
@@ -135,6 +141,29 @@ html .syntaxhighlighter {
 }
 .toolbar {
 	display:none;
+}
+.preso-presenter-wrapper {
+	height:100%;
+	width:50%;
+	position: fixed;
+	top:0;
+	left:0;
+	pointer-events: none;
+	z-index:99;
+	overflow:hidden;
+}
+.preso-presenter-frame {
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}
+.preso-notes-page .preso-notes-block {
+	padding: 1em;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.preso-notes-page .preso-notes-block .preso-note-slide{
+	font-size: .75em;
 }
 
 
