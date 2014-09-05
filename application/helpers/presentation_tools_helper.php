@@ -88,4 +88,46 @@ function code_example( $file, &$ci )
 	}
 	return "<pre class='brush: php; html-script: true'>\n".$code."</pre>";
 }
+function timeline( $events, $title )
+{
+	$length = count( $events );
+	$years = ceil( ( strtotime( $events[ $length - 1 ][ "date" ] ) - strtotime( $events[ 0 ][ "date" ] ) )/ 31536000 ) ;
+	$year = 0;
+	$html = "";
+	$count = $length;
+	foreach( $events as $event ) {
+		$pointer = "";
+		$currentYear = date( "Y", strtotime( $event[ "date" ] ) );
+		$day = date( "z", strtotime( $event[ "date" ] ) );
+		$left = ( $day / 365 ) * 100;
+		$right = "auto";
+		if ( $left >= 85 ) {
+			$right = 100 - $left;
+			$right .= "%";
+			$left = "auto";
+			$pointer = "timeline-entry-pointer-right";
+		} else {
+			$left .= "%";
+		}
+		if ( $year !== $currentYear ) {
+			$year = $currentYear;
+			if( $html !== "" ) {
+				$html .= "</div>";
+			}
+			$html .= "<div data-role='page' class='timeline ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='timeline-".$year."' data-defaults='true'>";
+			$html .= "<div class='timeline-title'>".$year."</div>";
+		}
+		$html .= "<div style='right: ".$right."; left: ".$left."; z-index: ".$count--."' class='timeline-entry timeline-".$event[ "position" ]."'>";
+		$html .= "<img class='timeline-image' src='/images/".$event[ "project" ].".png'>";
+		$html .= $event[ "entry" ];
+		$html .= "<div class='timeline-entry-date'>".date( "F j", strtotime( $event[ "date" ] ) )."</div>";
+		$html .= "<a class='timeline-entry-link' href='".$event[ "link" ]."'>Link</a>";
+		$html .= "<div class='timeline-entry-pointer $pointer'></div>";
+		$html .= "</div>";
+	}
+	$html .= "</div>";
+	$html .= "<div class='timeline-bar'></div>";
+	$html .= "<div data-role='popup' id='event-popup'></div>";
+	echo $html;
+}
 ?>

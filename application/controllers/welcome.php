@@ -29,14 +29,18 @@ class Welcome extends CI_Controller {
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI );
-			$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
-			$html .= "<div class='ui-content' role='main'>";
-			$html .= preg_replace( "/<--Notes-->(.)*/s","",$this->load->view( $path."/".$slide.".html", $data, true ));
-			$html .= "</div>";
-			$html .= "</div>";
-			$panel .= "<li>";
-			$panel .= "<a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href='#".$data[ "id" ]."'>".$this->format_title( $slide )."</a>";
-			$panel .= "</li>";
+			if( preg_match( "/timeline/", $slide ) ){
+				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
+			} else {
+				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
+				$html .= "<div class='ui-content' role='main'>";
+				$html .= preg_replace( "/<--Notes-->(.)*/s","",$this->load->view( $path."/".$slide.".html", $data, true ));
+				$html .= "</div>";
+				$html .= "</div>";
+				$panel .= "<li>";
+				$panel .= "<a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href='#".$data[ "id" ]."'>".$this->format_title( $slide )."</a>";
+				$panel .= "</li>";
+			}
 		}
 		$panel .= "</ol>";
 		$panel .= "</div>";

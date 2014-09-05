@@ -129,3 +129,132 @@ html .syntaxhighlighter {
 .preso-notes-page .preso-notes-block .preso-note-slide{
 	font-size: .75em;
 }
+.timeline {
+	background: #222;
+}
+.timeline-bar {
+	height: .75em;
+	background-color: #ccc;
+	position: fixed;
+	left: 0;
+	top: 50%;
+	width:100%;
+}
+.timeline-entry {
+	width: auto;
+	height: auto;
+	border: 2px solid #ccc;
+	border-radius: .25em;
+	background: white;
+	position: fixed;
+	color: #333;
+	font-weight: bold;
+	text-shadow: none;
+	padding: .4em;
+	height: 36px;
+	font-size: .9em;
+	min-width: 9.5em;
+}
+.timeline-entry.timeline-top {
+	top: 50%;
+	margin-top: -4.5em;
+}
+.timeline-entry.timeline-hightop {
+	top: 50%;
+	margin-top: -9em;
+}
+.timeline-entry.timeline-extrahightop {
+	top: 50%;
+	margin-top: -13.5em;
+}
+.timeline-entry.timeline-bottom {
+	top: 50%;
+	margin-bottom: -4.5em;
+}
+.timeline-entry.timeline-lowbottom {
+	top: 50%;
+	margin-bottom: -9em;
+}
+.timeline-entry.timeline-extralowbottom {
+	top: 50%;
+	margin-bottom: -13.5em;
+}
+.timeline-title {
+	font-size: 3em;
+	text-align: right;
+	padding: .25em;
+	color: white;
+}
+.timeline.slide.out, .timeline.slide.in {
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 1100ms;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-duration: 1100ms;
+	animation-timing-function: ease-out;
+	animation-duration: 1100ms;
+}
+.timeline-entry .timeline-entry-pointer {
+	position: absolute;
+	height:1.5em;
+	width: .2em;
+	left: 0;
+	background: #ccc;
+}
+.timeline-entry .timeline-entry-pointer-right {
+	left: auto;
+	right: 0;
+}
+.timeline-entry.timeline-top .timeline-entry-pointer {
+	bottom:-1.5em;
+	height:1.5em;
+}
+.timeline-entry.timeline-hightop .timeline-entry-pointer {
+	bottom:-6.5em;
+	height:6.5em;
+}
+.timeline-entry.timeline-extrahightop .timeline-entry-pointer {
+	bottom:-11em;
+	height:11em;
+}
+.timeline-entry.timeline-bottom .timeline-entry-pointer {
+	top:-1.5em;
+	height:1.5em;
+}
+.timeline-entry.timeline-lowbottom .timeline-entry-pointer {
+	top:-6.5em;
+	height:6.5em;
+}
+.timeline-entry.timeline-extralowbottom .timeline-entry-pointer {
+	top:-11em;
+	height:11em;
+}
+.timeline-entry-date {
+	position: absolute;
+	top: .2em;
+	right: .2em;
+	font-size: .7em;
+	font-weight: bold;
+	color: red;
+}
+.timeline-entry-link {
+	font-size: .9em;
+	position: absolute;
+	left: 50%;
+	margin-left: -15px;
+	bottom: .1em;
+}
+.timeline .timeline-image {
+	height: 100%;
+	vertical-align: middle;
+	margin-right: .5em;
+}
+.full-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.team-image {
+	position: absolute;
+	box-shadow: 4px 4px 4px black;
+	width: 30%;
+}
