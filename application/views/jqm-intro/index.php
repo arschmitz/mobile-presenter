@@ -1,5 +1,5 @@
 <?php
-	$slides = [
+	$slides = array(
 		"mobile-title-slide",
 		"mobile-tag-line",
 		"seriously-cross-platform",
@@ -9,5 +9,5 @@
 		"touch-normalization",
 		"single-code-base",
 		"auto-init"
-	];
+	);
 ?>

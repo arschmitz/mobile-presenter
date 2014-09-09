@@ -88,8 +88,29 @@ function code_example( $file, &$ci )
 	}
 	return "<pre class='brush: php; html-script: true'>\n".$code."</pre>";
 }
-function timeline( $events, $title )
+function timelinePanel( $events )
 {
+	$length = count( $events );
+	$years = ceil( ( strtotime( $events[ $length - 1 ][ "date" ] ) - strtotime( $events[ 0 ][ "date" ] ) )/ 31536000 ) ;
+	$year = 0;
+	$panel = "";
+	$count = $length;
+	foreach( $events as $event ) {
+		$currentYear = date( "Y", strtotime( $event[ "date" ] ) );
+		if ( $year !== $currentYear ) {
+			$year = $currentYear;
+			$panel .= "<li>";
+			$panel .= "<a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href='#timeline-$currentYear'>Timeline $currentYear</a>";
+			$panel .= "</li>";
+		}
+	}
+	echo $panel;
+}
+function timeline( $events, $title, $panel )
+{
+	if( $panel ) {
+		return timelinePanel( $events );
+	}
 	$length = count( $events );
 	$years = ceil( ( strtotime( $events[ $length - 1 ][ "date" ] ) - strtotime( $events[ 0 ][ "date" ] ) )/ 31536000 ) ;
 	$year = 0;

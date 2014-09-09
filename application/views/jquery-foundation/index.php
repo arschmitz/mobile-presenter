@@ -1,5 +1,5 @@
 <?php
-	$slides = [
+	$slides = array(
 		"foundation-title-slide",
 		"what-we-are",
 		"what-we-do",
@@ -35,5 +35,5 @@
 		"single-code-base",
 		"auto-semantic-initialization",
 		"auto-init"
-	];
+	);
 ?>

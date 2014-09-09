@@ -1,270 +1,310 @@
 <?php
-	echo timeline([
-		[
+	echo timeline(array(
+		array(
 			"date" => "01/14/2010",
 			"entry" => "jQuery 1.4",
 			"position" => "top",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2010/01/14/jquery-14-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2010/01/14/jquery-14-released/",
+			"notes" => "As you can see 2010 was a busy and milestone year when it came to mobile development",
+			"reveal" => "Libraries Develop in isolation"
+		),
+		array(
 			"date" => "03/23/2010",
 			"entry" => "jQuery UI 1.8",
 			"position" => "bottom",
 			"project" => "jquery-ui",
-			"link" => "http://blog.jqueryui.com/2010/03/jquery-ui-18/"
-		],
-		[
+			"link" => "http://blog.jqueryui.com/2010/03/jquery-ui-18/",
+			"notes" => "in 2010 was when the jQuery mobile project first began it started out with a blog post announcing the project and was quickly followed by the first commit and within 2 months the first alpha release.",
+			"reveal" => "There is almost no shared code between libraries"
+		),
+		array(
 			"date" => "05/03/2010",
 			"entry" => "Android 2.2 Froyo",
 			"position" => "top",
 			"project" => "android",
-			"link" => "http://developer.android.com/about/versions/android-2.2-highlights.html"
-		],
-		[
+			"link" => "http://developer.android.com/about/versions/android-2.2-highlights.html",
+			"Notes" => "Its easy to remember how quickly things have changed in the years since but when development first began the now much maligned android 2.3 had not even been released yet iOS 4 was only 2 months old and blackberry was still one of the biggest players in the mobile market having just released Blackberry 6",
+			"reveal" => "There are duplicate widgets between libraries"
+		),
+		array(
 			"date" => "06/21/2010",
 			"entry" => "iOS 4",
 			"position" => "bottom",
 			"project" => "ios",
-			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iPhoneOS4.html"
-		],
-		[
+			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iPhoneOS4.html",
+			"notes" => "jQuery core 1.4 had just been released and pushed the core library a big step forward and jQuery ui 1.8 was released in march and before the year was out we would see android 2.3's release and the first windows phones hit the market, sadly the use what is essentially ie8",
+			"reveal" => "There is little cooperation between teams"
+		),
+		array(
 			"date" => "07/01/2010",
 			"entry" => "Blackberry 6",
 			"position" => "hightop",
 			"project" => "blackberry",
-			"link" => "http://us.blackberry.com/software/smartphones/blackberry-6-os.html"
-		],
-		[
+			"link" => "http://us.blackberry.com/software/smartphones/blackberry-6-os.html",
+			"notes" => "2010 was a flurry of development for every one and it was from this rapidly changing environment that the jQuery Mobile project was born",
+			"reveal" => "no shared infrastructure"
+		),
+		array(
 			"date" => "08/13/2010",
 			"entry" => "Blog post announce jQuery Mobile Project",
 			"position" => "extrahightop",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jqueryui.com/2010/08/the-jquery-project-is-proud-to-announce-the-jquery-mobile-project/"
-		],
-		[
+			"link" => "http://blog.jqueryui.com/2010/08/the-jquery-project-is-proud-to-announce-the-jquery-mobile-project/",
+			"notes" => "The results of the rapid paced development was the jQuery ui could not adapt quickly enough to be the solution for mobile widgets, jQuery ui at the time was built around mouse events as the sole input type"
+		),
+		array(
 			"date" => "08/24/2010",
 			"entry" => "First jQuery Mobile blog post",
 			"position" => "extralowbottom",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jquerymobile.com/2010/08/"
-		],
-		[
+			"link" => "http://blog.jquerymobile.com/2010/08/",
+			"notes" => "and the current widget factory lacked any type of extensibility for widget to be able to even try to adapt them for mobile use. The current UI theme was also ill suited to the current mobile sensibilities."
+		),
+		array(
 			"date" => "09/10/2010",
 			"entry" => "First commit to jQuery Mobile Repo",
 			"position" => "hightop",
 			"project" => "jquery-mobile",
-			"link" => "https://github.com/jquery/jquery-mobile/commit/1d0fd4a7d8b852e10dfe91cd2920579ea4c30cc3"
-		],
-		[
+			"link" => "https://github.com/jquery/jquery-mobile/commit/1d0fd4a7d8b852e10dfe91cd2920579ea4c30cc3",
+			"notes" => "Results:"
+		),
+		array(
 			"date" => "10/16/2010",
 			"entry" => "jQuery Mobile alpha 1",
 			"position" => "lowbottom",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jquerymobile.com/2011/11/16/announcing-jquery-mobile-1-0/"
-		],
-		[
+			"link" => "http://blog.jquerymobile.com/2011/11/16/announcing-jquery-mobile-1-0/",
+			"notes" => "The results of the climate at the time of jQuery mobiles inception are that the jQuery mobile and jQuery ui teams worked in in isolation from each other there is no shared code execpt the widget factory which is just copy and pasted from repo to repo"
+		),
+		array(
 			"date" => "10/20/2010",
 			"entry" => "Windows Phone 7",
 			"position" => "bottom",
 			"project" => "windows-phone",
-			"link" => "http://blogs.windows.com/bloggingwindows/2010/10/20/the-windows-phone-7-launch-has-started/"
-		],
-		[
+			"link" => "http://blogs.windows.com/bloggingwindows/2010/10/20/the-windows-phone-7-launch-has-started/",
+			"notes" => "the libraries have duplicate widgets and different development practices. and As the teams develope they continue to reflect these differences choicing different issue trackers different wikis and different choices of communication channels"
+		),
+		array(
 			"date" => "12/06/2010",
 			"entry" => "Android 2.3 Gingerbread",
 			"position" => "top",
 			"project" => "android",
 			"link" => "http://developer.android.com/about/versions/android-2.3-highlights.html"
-		],
-		[
+			"notes" => "While other jQuery teams had meetings on irc the mobile team used google hangouts for weekly meetings, Other teams used trac for issues Mobile used Github Mobile also used Basecamp for tracking and communication while other teams did not even basic infrastructure like the ability to preview branches was implemented differently"
+		),
+		array(
 			"date" => "01/31/2011",
 			"entry" => "jQuery 1.5",
 			"position" => "top",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2011/01/31/jquery-15-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2011/01/31/jquery-15-released/",
+			"notes" => "2011 continued the fast pace of change in the industry and with in the jQuery family. In 2011 John Resig the creator of the core library also began to step back from active development as he began work with Kahn academy"
+		),
+		array(
 			"date" => "02/22/2011",
 			"entry" => "Android 3.0 Honeycomb",
 			"position" => "bottom",
 			"project" => "android",
-			"link" => "http://developer.android.com/about/versions/android-3.0-highlights.html"
-		],
-		[
+			"link" => "http://developer.android.com/about/versions/android-3.0-highlights.html",
+			"notes" => "Three new versions of jQuery core were released in 2011, leading up to the release of jQuery 1.7 which introduced the new fast events system we know today featuring on and off, jQuery UI began a major api redesign after the 1.8 release and had no new versions released in 2011"
+		),
+		array(
 			"date" => "05/03/2011",
 			"entry" => "jQuery 1.6",
 			"position" => "top",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2011/05/03/jquery-16-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2011/05/03/jquery-16-released/",
+			"notes" => "2011 also saw the emmergence of the tablet market. 2010 saw the first iPad but in 2011 we saw the ipad 2 the very long lived replacment of the original iPad as well as the emergence of the android tablet market with the short lived android 3.0"
+		),
+		array(
 			"date" => "08/01/2011",
 			"entry" => "Blackberry 7",
 			"position" => "bottom",
 			"project" => "blackberry",
-			"link" => "http://ca.blackberry.com/support/apps-and-software/blackberry-os-7.html"
-		],
-		[
+			"link" => "http://ca.blackberry.com/support/apps-and-software/blackberry-os-7.html",
+			"notes" => "But thats not all that google had in store for us in 2011, 2011 also marked the introduction of the modern android 4.x line of phones"
+		),
+		array(
 			"date" => "10/20/2011",
 			"entry" => "Windows Phone 7.5",
 			"position" => "bottom",
 			"project" => "windows-phone",
-			"link" => "http://blogs.windows.com/bloggingwindows/2011/09/27/windows-phone-7-5-mango-update-begins/"
-		],
-		[
+			"link" => "http://blogs.windows.com/bloggingwindows/2011/09/27/windows-phone-7-5-mango-update-begins/",
+			"notes" => "continuing with their yearly releases we saw iOS 5, and blackberry truly embracing touch for the first time with blackberry 7, and the windows 7.5 update brought an updated browser."
+		),
+		array(
 			"date" => "10/12/2011",
 			"entry" => "iOS 5",
 			"position" => "extralowbottom",
 			"project" => "ios",
-			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS5.html"
-		],
-		[
+			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS5.html",
+			"notes" : "and in november just over a year after its inception jQuery mobile 1.0 was released"
+		),
+		array(
 			"date" => "10/18/2011",
 			"entry" => "Android 4.0 ICS",
 			"position" => "top",
 			"project" => "android",
-			"link" => "http://developer.android.com/about/versions/android-4.0-highlights.html"
-		],
-		[
+			"link" => "http://developer.android.com/about/versions/android-4.0-highlights.html",
+			"notes": "Results"
+		),
+		array(
 			"date" => "11/03/2011",
 			"entry" => "jQuery 1.7",
 			"position" => "lowbottom",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2011/05/03/jquery-16-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2011/05/03/jquery-16-released/",
+			"notes": "Up until this time many mobile browsers lacked basic support for many features for example iOS didnt support position fixed until iOS 5 and apple did not acheive the its amazing adoption rates because iOS 5 was when over the air updates came to iOS for the first time"
+		),
+		array(
 			"date" => "11/16/2011",
 			"entry" => "jQuery Mobile 1.0",
 			"position" => "hightop",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jquerymobile.com/2011/11/16/announcing-jquery-mobile-1-0/"
-		],
-		[
+			"link" => "http://blog.jquerymobile.com/2011/11/16/announcing-jquery-mobile-1-0/",
+			"notes" => "The mobiel browser support of the day really had a big impact on the begining and core design choices of the jQuery Mobile Library"
+		),
+		array(
 			"date" => "04/13/2012",
 			"entry" => "jQuery Mobile 1.1",
 			"position" => "top",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jquerymobile.com/2012/04/13/announcing-jquery-mobile-1-1-0/"
-		],
-		[
+			"link" => "http://blog.jquerymobile.com/2012/04/13/announcing-jquery-mobile-1-1-0/",
+			"notes" => "2012 saw more milestones windows phone 8 introduced pointer events the input event model we think is the future of input events on the web, Android jellybean also came out in 2012 this is the version we still see making up more then 50% of the android install base today."
+		),
+		array(
 			"date" => "07/13/2012",
 			"entry" => "Android 4.1 Jellybean",
 			"position" => "bottom",
 			"project" => "android",
-			"link" => "http://developer.android.com/about/versions/jelly-bean.html"
-		],
-		[
+			"link" => "http://developer.android.com/about/versions/jelly-bean.html",
+			"notes" => "Within jQuery 2012 was a big year also. It saw the formation of the jQuery Foundation The release of two new jQuery Mobile versions. And perhaps most important to this talk jQuery UI 1.9 was released which feature an updated widget factory which included built in methods for common uses in widgets and the ability to extend widgets"
+		),
+		array(
 			"date" => "08/09/2012",
 			"entry" => "jQuery 1.8",
 			"position" => "top",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2012/08/09/jquery-1-8-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2012/08/09/jquery-1-8-released/",
+			"notes" => "For mobile and the idea of eventually sharing code between libraries this was a big deal. It means being able to write modular re usable widgets for both Libraries and really shines when combined with amd"
+		),
+		array(
 			"date" => "09/19/2012",
 			"entry" => "iOS 6",
 			"position" => "lowbottom",
 			"project" => "ios",
-			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS6.html"
-		],
-		[
+			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS6.html",
+			"notes" => "Results: "
+		),
+		array(
 			"date" => "10/02/2012",
 			"entry" => "jQuery Mobile 1.2",
 			"position" => "hightop",
 			"project" => "jquery-mobile",
-			"link" => "http://blog.jquerymobile.com/2012/10/02/announcing-jquery-mobile-1-2-0-final/"
-		],
-		[
+			"link" => "http://blog.jquerymobile.com/2012/10/02/announcing-jquery-mobile-1-2-0-final/",
+			"notes" => "December of 2012 also marked the first meeting to talk about what code we could share and exactly how we would move in this direction between Scott Gonzalez and myself here we identified easy first steps we could take to remove duplicated code in the core files and share a common core."
+		),
+		array(
 			"date" => "10/08/2012",
 			"entry" => "jQuery UI 1.9",
 			"position" => "bottom",
 			"project" => "jquery-ui",
 			"link" => "http://blog.jqueryui.com/2012/10/jquery-ui-1-9-0/"
-		],
-		[
+		),
+		array(
 			"date" => "10/20/2012",
 			"entry" => "Windows Phone 8",
 			"position" => "top",
 			"project" => "windows-phone",
 			"link" => "http://blogs.windows.com/buildingapps/2012/11/08/internet-explorer-10-brings-html5-to-windows-phone-8-in-a-big-way/"
-		],
-		[
+		),
+		array(
 			"date" => "01/15/2013",
 			"entry" => "jQuery 1.9",
 			"position" => "hightop",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2013/01/15/jquery-1-9-final-jquery-2-0-beta-migrate-final-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2013/01/15/jquery-1-9-final-jquery-2-0-beta-migrate-final-released/",
+			"notes" => "2013 brought a measure of stability to the market places blackberry, ios, and android each released one new version, and Windows Phone had no major updates"
+		),
+		array(
 			"date" => "01/17/2013",
 			"entry" => "jQuery UI 1.10",
 			"position" => "lowbottom",
 			"project" => "jquery-ui",
-			"link" => "http://blog.jqueryui.com/2013/01/jquery-ui-1-10-0/"
-		],
-		[
+			"link" => "http://blog.jqueryui.com/2013/01/jquery-ui-1-10-0/",
+			"notes" => "2013 brought jQuery 1.9 and 2.0 and jQuery ui 1.10 continued the api updates begun in 1.9"
+		),
+		array(
 			"date" => "01/30/2013",
 			"entry" => "Blackberry 10",
 			"position" => "top",
 			"project" => "blackberry",
-			"link" => "http://us.blackberry.com/campaigns/blackberry-10.html"
-		],
-		[
+			"link" => "http://us.blackberry.com/campaigns/blackberry-10.html",
+			"notes" => "Results: "
+		),
+		array(
 			"date" => "02/20/2013",
 			"entry" => "jQuery Mobile 1.3",
 			"position" => "bottom",
 			"project" => "jquery-mobile",
 			"link" => "http://blog.jquerymobile.com/2013/02/20/jquery-mobile-1-3-0-released/"
-		],
-		[
+			"notes" => "stability in the market please and the improvments the prior year to the widget factory meant more thought was put into how to better serve developers and better utilize our development efforts"
+		),
+		array(
 			"date" => "04/18/2013",
 			"entry" => "jQuery 2.0",
 			"position" => "top",
 			"project" => "jquery",
 			"link" => "http://blog.jquery.com/2013/04/18/jquery-2-0-released/"
-		],
-		[
+			"notes" => "In the spring it was decided to begin formally merging aspects of the UI and Mobile teams."
+		),
+		array(
 			"date" => "05/24/2013",
 			"entry" => "jQuery 1.10",
 			"position" => "bottom",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2013/05/24/jquery-1-10-0-and-2-0-1-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2013/05/24/jquery-1-10-0-and-2-0-1-released/",
+			"notes" => "In December of 2013 jQuery mobile 1.4 was released and for the first time code and widgets were shared between jQuery Mobile and jQuery UI. The Tabs widget from jQuery UI was incorporated into jQuery Mobile. jQuery Mobile also began to share a common core with jQuery UI."
+		),
+		array(
 			"date" => "09/18/2013",
 			"entry" => "iOS 7",
 			"position" => "hightop",
 			"project" => "ios",
-			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html"
-		],
-		[
+			"link" => "https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html",
+			"notes" => "Another big step forward in the interoperability of the libraries was work dont to remove the need for widgets to be written specificly for jQuery Mobile. Re-thought data-attributes to options are now done automaticly for any widget loaded into a jQuery Mobile Page. The other big change is how Auto-init works it was previously an event based system and required widgets to specificly register listeners to work."
+		),
+		array(
 			"date" => "10/31/2013",
 			"entry" => "Android 4.4 Kitkat",
 			"position" => "top",
 			"project" => "android",
-			"link" => "http://developer.android.com/about/versions/kitkat.html"
-		],
-		[
+			"link" => "http://developer.android.com/about/versions/kitkat.html",
+			"notes" => "Starting in 1.4 autoinit it acomplished automaticly for any widget added to a jQuery mobile page with an init selector based on the widgets name."
+		),
+		array(
 			"date" => "12/23/2013",
 			"entry" => "jQuery Mobile 1.4",
 			"position" => "bottom",
 			"project" => "jquery-mobile",
 			"link" => "http://blog.jquerymobile.com/2013/12/23/jquery-mobile-1-4-0-released/"
-		],
-		[
+		),
+		array(
 			"date" => "01/24/2014",
 			"entry" => "jQuery 1.11 and 2.1",
 			"position" => "top",
 			"project" => "jquery",
-			"link" => "http://blog.jquery.com/2014/01/24/jquery-1-11-and-2-1-released/"
-		],
-		[
+			"link" => "http://blog.jquery.com/2014/01/24/jquery-1-11-and-2-1-released/",
+			"notes" => "2014 so far has been a very slow year we have seen new version of jQuery core and UI introducing the selectmenu widget, and the windows phone 8.1 update"
+		),
+		array(
 			"date" => "06/26/2014",
 			"entry" => "UI releases 1.11.0",
 			"position" => "bottom",
 			"project" => "jquery-ui",
-			"link" => "http://blog.jqueryui.com/2014/06/jquery-ui-1-11-0/"
-		]
-	], "mobile-ui-merge");
+			"link" => "http://blog.jqueryui.com/2014/06/jquery-ui-1-11-0/",
+			"notes" => "But there are big things yet to come from the jQuery UI and Mobile projects"
+		)
+	), "mobile-ui-merge", $panel );
 ?>

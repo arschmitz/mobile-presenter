@@ -1,5 +1,5 @@
 <?php
-	$slides = [
+	$slides = array(
 		"title-slide",
 		"about-me",
 		"about-presentation",
@@ -54,5 +54,5 @@
 		"initialization-free-widgets",
 		"high-performance-css-framework",
 		"native-performance"
-	];
+	);
 ?>

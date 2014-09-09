@@ -28,9 +28,11 @@ class Welcome extends CI_Controller {
 
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
-			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI );
+			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "panel"=>false );
 			if( preg_match( "/timeline/", $slide ) ){
 				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
+				$data[ "panel" ] = true;
+				$panel .= $this->load->view( $path."/".$slide.".html", $data, true );
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
@@ -53,20 +55,24 @@ class Welcome extends CI_Controller {
 		$filesSorted = array();
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
-			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI );
-			$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='".$data[ "id" ]."' data-defaults='true'>";
-			$html .= "<div class='ui-content' role='main'>";
-			$html .= "<div class=\"ui-grid-a\"><div class=\"ui-block-a\">placeholder</div><div class=\"ui-block-b preso-notes-block ui-content\">";
-			$slide = $this->load->view( $path."/".$slide, $data, true );
-			if( preg_match( "/(.)*<--Notes-->/s", $slide ) ){
-				$html .= preg_replace( "/(.)*<--Notes-->/s","", $slide );
+			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "panel"=>false );
+			if( preg_match( "/timeline/", $slide ) ){
+				
 			} else {
-				$html .= "<span class='note-slide'>".preg_replace( "/<--Notes-->(.)*/s","", $slide )."</span>";
+				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='".$data[ "id" ]."' data-defaults='true'>";
+				$html .= "<div class='ui-content' role='main'>";
+				$html .= "<div class=\"ui-grid-a\"><div class=\"ui-block-a\">placeholder</div><div class=\"ui-block-b preso-notes-block ui-content\">";
+				$slide = $this->load->view( $path."/".$slide.".html", $data, true );
+				if( preg_match( "/(.)*<--Notes-->/s", $slide ) ){
+					$html .= preg_replace( "/(.)*<--Notes-->/s","", $slide );
+				} else {
+					$html .= "<span class='note-slide'>".preg_replace( "/<--Notes-->(.)*/s","", $slide )."</span>";
+				}
+				$html .= "</div>";
+				$html .= "</div>";
+				$html .= "</div>";
+				$html .= "</div>";
 			}
-			$html .= "</div>";
-			$html .= "</div>";
-			$html .= "</div>";
-			$html .= "</div>";
 
 		}
 		return $html;

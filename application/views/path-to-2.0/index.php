@@ -1,9 +1,32 @@
 <?php
-	$slides = [
+	$slides = array(
 		"intro",
 		"portland-maine",
 		"team",
+		"projects",
+		"follow-along",
+		"live-demos",
+		"san-diego",
+		"san-diego-fail",
+		"vienna",
+		"vienna-fail",
+		"south-park-fail",
+		"chicago",
+		"history",
 		"timeline",
-		"merge"
-	];
+		"merge",
+		"communication",
+		"irc",
+		"infrastructure",
+		"branch-preview",
+		"ui-view",
+		"mobile-view",
+		"ui-api",
+		"mobile-api-old",
+		"mobile-api",
+		"require",
+		"bower",
+		"build-node",
+		"tooling",
+	);
 ?>

@@ -9184,7 +9184,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 			window.setTimeout( function(){
 				var contentHeight = window.innerHeight - 88;
 
-				$( ".ui-content", event.target ).height( contentHeight - 32 );
+				//$( ".ui-content", event.target ).height( contentHeight - 32 );
 				$( event.target ).find( ".preso-image-auto" ).each( function(){
 					var limiter, bigger, clone, ratio, height,
 						otherHeight = 0,

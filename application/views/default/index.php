@@ -1,6 +1,6 @@
 <?php
-	$slides = [
+	$slides = array(
 		"welcome-slide",
 		"index-slide"
-	];
+	);
 ?>

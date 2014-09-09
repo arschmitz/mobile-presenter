@@ -1,5 +1,5 @@
 <?php
-	$slides = [
+	$slides = array(
 		"video"
-	];
+	);
 ?>
