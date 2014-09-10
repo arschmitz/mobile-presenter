@@ -24,14 +24,13 @@ class Welcome extends CI_Controller {
 		$panel =  "<div class='preso-panel' id='slide-list'>";
 		$panel .= "<ol class='preso-panel-list ui-mini ui-listview'>";
 		$panel .= "<li class='ui-li-divider ui-bar-inherit ui-first-child'>Table of Contents</li>";
-		$filesSorted = array();
 
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
-			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "panel"=>false );
+			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
 			if( preg_match( "/timeline/", $slide ) ){
 				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
-				$data[ "panel" ] = true;
+				$data[ "type" ] = "panel";
 				$panel .= $this->load->view( $path."/".$slide.".html", $data, true );
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
@@ -52,12 +51,12 @@ class Welcome extends CI_Controller {
 	{
 		require( "./application/views/".$path."/index.php" );
 		$html = "";
-		$filesSorted = array();
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
-			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "panel"=>false );
+			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
 			if( preg_match( "/timeline/", $slide ) ){
-				
+				//$data[ "type" ] = "notes";
+				//$html .= $this->load->view( $path."/".$slide.".html", $data, true );
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";

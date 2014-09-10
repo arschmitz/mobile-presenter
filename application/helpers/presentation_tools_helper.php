@@ -106,10 +106,16 @@ function timelinePanel( $events )
 	}
 	echo $panel;
 }
-function timeline( $events, $title, $panel )
+function timelineNotes( $events )
 {
-	if( $panel ) {
+	return "foo";
+}
+function timeline( $events, $title, $type )
+{
+	if( $type === "panel" ) {
 		return timelinePanel( $events );
+	} else if( $type === "notes" ) {
+		return timelineNotes( $events );
 	}
 	$length = count( $events );
 	$years = ceil( ( strtotime( $events[ $length - 1 ][ "date" ] ) - strtotime( $events[ 0 ][ "date" ] ) )/ 31536000 ) ;

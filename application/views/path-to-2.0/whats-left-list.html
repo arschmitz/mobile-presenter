@@ -1,0 +1,23 @@
+<h1>Whats left in jQuery Mobile</h1>
+<?php
+echo listview(array("Lean and extensible navigation framework",
+"Support for multiple containers",
+"history abstraction",
+"support for use of the back button for closing widgets".
+"Auto Initialization module",
+"Declarative options module",
+"Page Transitions",
+"Layout Based Widgets"
+));
+?>
+<--Notes-->
+<p>One of the key components of jQuery mobile is its support for single page navigation and history abstraction in apps</p>
+<p>This will continue to be the core of jQuery mobile. We will be adding support for multiple page contains to allow for tablet layouts with support for tracking history across multiple containers</p>
+<p>We will continue to support the abstraction of history for hash change and pushstate browsers making it so you can just write your links and markup as you normally would and we will make sure history behaves as you expect no matter what the browser</p>
+<p>Continuing with theme of navigation we will be making it possible to easily tie widget actions into history</p>
+<p>for example on android it is common usage to have the back button close things like dialogs, popups, and panels</p>
+<p>We will support binding a widget method to a link and handing the history for you</p>
+<p>Just by adding a single attribute to a link clicking it will open a widget and back button will close it</p>
+<p>One of the most popular feature of jQuery mobile is its declarative nature. we will continue to offer modules for auto initialization of widgets and for reading of options from data attributes</p>
+<p>The one aspect we will be changing as these will both be standalone modules from the rest of the library</p>
+<p>Page transitions will continue to be a key component of jQuery Mobile to provide a truly app like experience</p>

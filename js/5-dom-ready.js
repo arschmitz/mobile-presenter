@@ -113,7 +113,7 @@
 			window.setTimeout( function(){
 				var contentHeight = window.innerHeight - 88;
 
-				//$( ".ui-content", event.target ).height( contentHeight - 32 );
+				$( ".ui-content", event.target ).height( contentHeight - 32 );
 				$( event.target ).find( ".preso-image-auto" ).each( function(){
 					var limiter, bigger, clone, ratio, height,
 						otherHeight = 0,

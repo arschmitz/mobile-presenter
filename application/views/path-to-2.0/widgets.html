@@ -1,0 +1,33 @@
+<h1>Widgets</h1>
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+		<h2>UI Widgets</h2>
+	<?php
+		echo listview(array(
+			"Everything there today",
+			"Checkboxradio",
+			"Controlgroup",
+			"Textinput",
+			"Flipswitch"
+		));
+	?>
+	</div>
+	<div class="ui-block-b">
+	<?php
+		echo listview(array(
+			"Pagecontainer",
+			"Page",
+			"Toolbar",
+			"Navbar",
+			"Panel",
+			"Tables"
+		));
+	?>
+	</div>
+</div>
+<--Notes-->
+<p>In 2.0 all of the common code will live in jQuery UI and all of jQuery ui will be apart of jQuery Mobile</p>
+<p>jQuery Mobile will become another layer on top of 
+<p>Here you can see which widgets currently in mobile will remain and which ones will become a part of jQuery UI</p>
+<p>All the widgets that are general use stand alone widgets will become part of jQuery UI. The ones that will remain in jQuery Mobile are the widgets related to pages and layout, so things like the page itself toolbars, and panels</p>
+<p>All of the widgets will continue to be in jQuery mobile along with all the other ui widgets just now they will be pulled in as an external dependency via bower</p>
