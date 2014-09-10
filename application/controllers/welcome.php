@@ -50,7 +50,7 @@ class Welcome extends CI_Controller {
 	private function load_notes( $path )
 	{
 		require( "./application/views/".$path."/index.php" );
-		$html = "";
+		$html = "<script>$( window ).on( 'blur', function(){ setTimeout(function(){ $( window ).focus(); },100); });</script>";
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
