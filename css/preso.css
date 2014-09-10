@@ -332,4 +332,13 @@ html .syntaxhighlighter {
 .black {
 	color: black !important;
 }
-
+#timer {
+	font-size: 1.2em;
+	color: black;
+	text-shadow: none;
+	background-color: white;
+	border: 2px solid black;
+	position: fixed;
+	top: 0;
+	right: 0;
+}

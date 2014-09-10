@@ -129,7 +129,7 @@ function timelineNotes( $events )
 				$html .= "<div class=\"ui-block-b preso-notes-block ui-content\">";
 				$year = $currentYear;
 		}
-		$html .= "<span class='note-slide'>".$event[ "notes" ]."</span>";
+		$html .= "<span class='note-slide'><p>".$event[ "notes" ]."</p></span>";
 	}
 	$html .= "</div>";
 	$html .= "</div>";
