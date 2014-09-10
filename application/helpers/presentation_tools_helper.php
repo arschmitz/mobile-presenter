@@ -131,7 +131,10 @@ function timelineNotes( $events )
 		}
 		$html .= "<span class='note-slide'>".$event[ "notes" ]."</span>";
 	}
-
+	$html .= "</div>";
+	$html .= "</div>";
+	$html .= "</div>";
+	$html .= "</div>";
 	return $html;
 }
 function timeline( $events, $title, $type )
