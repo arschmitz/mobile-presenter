@@ -55,8 +55,8 @@ class Welcome extends CI_Controller {
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
 			if( preg_match( "/timeline/", $slide ) ){
-				//$data[ "type" ] = "notes";
-				//$html .= $this->load->view( $path."/".$slide.".html", $data, true );
+				$data[ "type" ] = "notes";
+				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
