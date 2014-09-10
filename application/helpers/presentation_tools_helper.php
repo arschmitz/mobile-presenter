@@ -126,6 +126,7 @@ function timelineNotes( $events )
 			$html .= "</div>";
 			$html .= "</div>";
 			$html .= "</div>";
+			$year = $currentYear;
 		}
 	}
 	return $html;
