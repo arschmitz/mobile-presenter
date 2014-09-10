@@ -115,20 +115,23 @@ function timelineNotes( $events )
 	$count = $length;
 	foreach( $events as $event ) {
 		$currentYear = date( "Y", strtotime( $event[ "date" ] ) );
+		if ( $year !== $currentYear && $year !== 0 ) {
+			$html .= "</div>";
+			$html .= "</div>";
+			$html .= "</div>";
+			$html .= "</div>";
+		}
 		if ( $year !== $currentYear ) {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='timeline-".$currentYear."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
-				$html .= "<div class=\"ui-grid-a\"><div class=\"ui-block-a\">placeholder</div><div class=\"ui-block-b preso-notes-block ui-content\">";
+				$html .= "<div class=\"ui-grid-a\">";
+				$html .= "<div class=\"ui-block-a\">placeholder</div>";
+				$html .= "<div class=\"ui-block-b preso-notes-block ui-content\">";
+				$year = $currentYear;
 		}
 		$html .= "<span class='note-slide'>".$event[ "notes" ]."</span>";
-		if ( $year !== $currentYear ) {
-			$html .= "</div>";
-			$html .= "</div>";
-			$html .= "</div>";
-			$html .= "</div>";
-			$year = $currentYear;
-		}
 	}
+
 	return $html;
 }
 function timeline( $events, $title, $type )
