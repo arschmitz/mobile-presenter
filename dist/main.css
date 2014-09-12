@@ -384,6 +384,9 @@ html .syntaxhighlighter {
 	top: 0;
 	right: 0;
 }
+.ui-content{
+	overflow: scroll !important;
+}
 
 
 /**
