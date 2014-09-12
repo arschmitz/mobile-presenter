@@ -1,12 +1,18 @@
 <h1>jQuery Mobile 1.5</h1>
 <?php
 	echo listview(array(
-		"Classes Option",
 		"Button",
 		"Checkboxradio",
 		"Controlgroup",
+		"Classes Option",
 		"Navbar",
 		"tables"
 	));
 ?>
-
+<--Notes-->
+<p>jQuery Mobile 1.5 will be jointly released with jQuery UI 1.12 and feature our first truely joint effort</p>
+<p>the jQuery Mobile button, checkboxradio, and controlgroup widgets are all going to be replaced by the newly written jQuery ui counterparts</p>
+<p>The New ui widgets are the first jointly written code written for inclusion in both libraries I have worked on these widgets over the course of the last year while working jointly on both teams with review and feedback from both teams</p>
+<p>While writing these we looked at the widgets in both libraries and how they were implemented what options they had etc and combined the best aspects of both</p>
+<p>The classes option though is what actually makes this possible today. by being able to map classes within the widgets we can create a simple extension which will apply the mobile theme to the widgets instead of the ui one</p>
+<p>In addition to this we will feature re-written responsive table and navbar widgets</p>

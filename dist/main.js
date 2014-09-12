@@ -9143,7 +9143,6 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	});
 	// Show or hide the timeline bar
 	$( document ).on( "pagebeforeshow", ".ui-page", function(){
-		console.log( $( this ).hasClass( "timeline" ) )
 		if( $( this ).hasClass( "timeline" ) ) {
 			$( ".timeline-bar" ).css({"z-index": 10 });
 		} else {
@@ -9257,7 +9256,9 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		SyntaxHighlighter.all();
 		//$( ".preso-presenter-frame" ).width( $( window ).width() / 2 );
 	});
-	var element = $( "#timer" ), timer, incrementTime = 70, currentTime;
+	$(function(){
+		var element = $( "#timer" ), timer, incrementTime = 70, currentTime;
+	});
 	$( document ).on( "click", element, function(){
         timer = $.timer(updateTimer, incrementTime, true);
 	});
