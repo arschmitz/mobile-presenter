@@ -374,6 +374,11 @@ html .syntaxhighlighter {
 .black {
 	color: black !important;
 }
+.what-is{
+	font-size:200px;
+	font-weight:bold;
+	color: green;
+}
 #timer {
 	font-size: 1.2em;
 	color: black;
