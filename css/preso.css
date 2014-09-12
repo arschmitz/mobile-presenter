@@ -348,6 +348,6 @@ html .syntaxhighlighter {
 	top: 0;
 	right: 0;
 }
-.ui-content{
+html body div.ui-content{
 	overflow: scroll !important;
 }
