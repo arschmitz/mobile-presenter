@@ -334,6 +334,12 @@ html .syntaxhighlighter {
 	left: 50%;
 	margin-left: -156px;
 }
+.chicago-logo {
+	position: fixed;
+	top: 30%;
+	left: 40%;
+	margin-left: -156px;
+}
 .vienna-banner {
 	position: fixed;
 	left: 50%;
