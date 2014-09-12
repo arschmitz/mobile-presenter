@@ -185,27 +185,4 @@
 		SyntaxHighlighter.all();
 		//$( ".preso-presenter-frame" ).width( $( window ).width() / 2 );
 	});
-	$(function(){
-		var element = $( "#timer" ), timer, incrementTime = 70, currentTime;
-	});
-	$( document ).on( "click", element, function(){
-        timer = $.timer(updateTimer, incrementTime, true);
-	});
-	function updateTimer() {
-        var timeString = formatTime(currentTime);
-        element.html( timeString );
-        currentTime += incrementTime;
-    }
-    function pad(number, length) {
-	    var str = '' + number;
-	    while (str.length < length) {str = '0' + str;}
-	    return str;
-	}
-	function formatTime(time) {
-	    time = time / 10;
-	    var min = parseInt(time / 6000),
-	        sec = parseInt(time / 100) - (min * 60),
-	        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
-	    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2) + ":" + hundredths;
-	}
 })( jQuery );
