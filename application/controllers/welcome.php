@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
+			$sections = explode( "<--Notes-->", $this->load->view( $path."/".$slide.".html", $data, true ));
 			if( preg_match( "/timeline/", $slide ) ){
 				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
 				$data[ "type" ] = "panel";
@@ -35,7 +36,7 @@ class Welcome extends CI_Controller {
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
-				$html .= explode( "<--Notes-->", $this->load->view( $path."/".$slide.".html", $data, true ))[ 0 ];
+				$html .= $sections[ 0 ];
 				$html .= "</div>";
 				$html .= "</div>";
 				$panel .= "<li>";
@@ -59,6 +60,7 @@ class Welcome extends CI_Controller {
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
+			$sections = explode( "<--Notes-->", $this->load->view( $path."/".$slide.".html", $data, true ));
 			if( preg_match( "/timeline/", $slide ) ){
 				$data[ "type" ] = "notes";
 				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
@@ -72,10 +74,10 @@ class Welcome extends CI_Controller {
 				$html .= "<div class='ui-content' role='main'>";
 				$html .= "<div class=\"ui-grid-a\"><div class=\"ui-block-a\">placeholder</div><div class=\"ui-block-b preso-notes-block ui-content\">";
 				$slide = $this->load->view( $path."/".$slide.".html", $data, true );
-				if( !isset( explode( "<--Notes-->", $slide )[ 1 ] ) ){
-					$html .= explode( "<--Notes-->",  $slide )[ 0 ];
+				if( !isset( $sections[ 1 ] ) ){
+					$html .= $sections[ 0 ];
 				} else {
-					$html .= "<span class='note-slide'>".explode( "<--Notes-->", $slide )[ 1 ]."</span>";
+					$html .= "<span class='note-slide'>".$sections[ 1 ]."</span>";
 				}
 				$html .= "</div>";
 				$html .= "</div>";
