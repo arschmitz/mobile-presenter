@@ -13,8 +13,12 @@ $.mobile.document.one('pagechange', function ( event, data ) {
 			masterConnect( key );
 		}
 	});
-	$.mobile.document.on('pagechange', function ( event, data ) {
-		socket.emit('changeslide', { page: data.toPage.attr( "id" ) });
+	$.mobile.document.on('pagebeforechange', function ( event, data ) {
+		if ( typeof data.toPage !== "string" ) {
+			socket.emit('changeslide', { page: data.toPage.attr( "id" ) });
+		} else {
+			socket.emit('changeslide', { page: "#" + data.toPage.split( "#" )[ 1 ] });
+		}
 	});
 });
 $.mobile.document.on( "click", ".preso-master-submit-button",function( event ){

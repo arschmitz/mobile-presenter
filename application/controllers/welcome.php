@@ -35,7 +35,7 @@ class Welcome extends CI_Controller {
 			} else {
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
-				$html .= preg_replace( "/<--Notes-->(.)*/s","",$this->load->view( $path."/".$slide.".html", $data, true ));
+				$html .= explode( "<--Notes-->", $this->load->view( $path."/".$slide.".html", $data, true ))[ 0 ];
 				$html .= "</div>";
 				$html .= "</div>";
 				$panel .= "<li>";
@@ -52,21 +52,30 @@ class Welcome extends CI_Controller {
 		require( "./application/views/".$path."/index.php" );
 		$html = "<script>$( window ).on( 'blur', function(){ setTimeout(function(){ $( window ).focus(); },100); });</script>";
 		$html .= "<div id='timer'></div>";
+		$panel =  "<div class='preso-panel' id='slide-list'>";
+		$panel .= "<ol class='preso-panel-list ui-mini ui-listview'>";
+		$panel .= "<li class='ui-li-divider ui-bar-inherit ui-first-child'>Table of Contents</li>";
+
 		foreach( $slides as $slide ){
 			$CI =& get_instance();
 			$data = array( "id"=>preg_replace( "/\.php/", "", $slide ), "ci"=>$CI, "type"=>false );
 			if( preg_match( "/timeline/", $slide ) ){
 				$data[ "type" ] = "notes";
 				$html .= $this->load->view( $path."/".$slide.".html", $data, true );
+				$data[ "type" ] = "panel";
+				$panel .= $this->load->view( $path."/".$slide.".html", $data, true );
 			} else {
+				$panel .= "<li>";
+				$panel .= "<a class='ui-btn ui-btn-icon-right ui-icon-carat-r' href='#".$data[ "id" ]."'>".$this->format_title( $slide )."</a>";
+				$panel .= "</li>";
 				$html .= "<div data-role='page' class='ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed preso-notes-page' id='".$data[ "id" ]."' data-defaults='true'>";
 				$html .= "<div class='ui-content' role='main'>";
 				$html .= "<div class=\"ui-grid-a\"><div class=\"ui-block-a\">placeholder</div><div class=\"ui-block-b preso-notes-block ui-content\">";
 				$slide = $this->load->view( $path."/".$slide.".html", $data, true );
-				if( preg_match( "/(.)*<--Notes-->/s", $slide ) ){
-					$html .= preg_replace( "/(.)*<--Notes-->/s","", $slide );
+				if( !isset( explode( "<--Notes-->", $slide )[ 1 ] ) ){
+					$html .= explode( "<--Notes-->",  $slide )[ 0 ];
 				} else {
-					$html .= "<span class='note-slide'>".preg_replace( "/<--Notes-->(.)*/s","", $slide )."</span>";
+					$html .= "<span class='note-slide'>".explode( "<--Notes-->", $slide )[ 1 ]."</span>";
 				}
 				$html .= "</div>";
 				$html .= "</div>";
@@ -75,7 +84,9 @@ class Welcome extends CI_Controller {
 			}
 
 		}
-		return $html;
+		$panel .= "</ol>";
+		$panel .= "</div>";
+		return $html.$panel;
 	}
 	private function format_title( $title )
 	{
@@ -126,6 +137,7 @@ class Welcome extends CI_Controller {
 		$this->load->helper( "presentation_tools" );
 		$html .= $this->load->view('head', $data, true);
 		$html .= "<body>";
+		$html .= $this->load->view('header', $data, true);
 		$html .= "<div class='preso-presenter-wrapper'><iframe src='/".$preso."/follow'' class='preso-presenter-frame'></iframe></div>";
 		$html .= $this->load->view('popup', $data, true);
 		$html .= $this->load_notes( $preso );

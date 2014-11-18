@@ -1,0 +1,7 @@
+<img class="full-image" src="/images/platform-support.jpg">
+<--Notes-->
+<p>Our supported platforms in the beginning of the mobile project were as wide reaching as possible we attempted and to this goal we created our graded support system using feature tests to fall back to different levels of enhancment based on feature support</p>
+<p>The problem we ran into with this is the core and and ui for the widget factory were not testing against these platforms and did not support some of the platforms that we were claiming to support</p>
+<p>This corpped up with old nokia feature phones on these platforms mobile should fall back to a css only experience disabling all the jQuery mobile javascript</p>
+<p>However even the simple support tests on some version cause errors which were nearly impossible to identify</p>
+<p>Now while we still do our best to not throw errors and create an unusable experience on any platform we only formally support a specific set of browsers which is shared across jQuery Core UI and Mobile</p>
