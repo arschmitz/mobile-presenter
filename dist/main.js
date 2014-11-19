@@ -9179,11 +9179,22 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	});
 	// Auto size images to fight without scrolling
 	$.mobile.document.on( "pagecreate", function(){
-		$.mobile.document.one( "pagebeforeshow", function( event, toPage ){
+		$.mobile.document.one( "pagebeforeshow", ".ui-page", function( event, toPage ){
+			var notesBlock = $( this ).find( ".preso-notes-block" );
 			window.setTimeout( function(){
 				var contentHeight = window.innerHeight - 88;
-
-				$( ".ui-content", event.target ).height( contentHeight - 32 );
+				
+				$( ".ui-content", event.target ).not( ".ui-content .ui-content" ).height( contentHeight - 32 );
+				var count = 0;
+				sizeNotes();
+				function sizeNotes() {
+					if( notesBlock.height() >= notesBlock.parent().closest( ".ui-content" ).height()  && count < 16 ) {
+						var fontSize = parseInt( notesBlock.css( "font-size" ), 10 );
+						notesBlock.css( "font-size", fontSize - 1 );
+						count++;
+						sizeNotes();
+					}
+				}
 				$( event.target ).find( ".preso-image-auto" ).each( function(){
 					var limiter, bigger, clone, ratio, height,
 						otherHeight = 0,

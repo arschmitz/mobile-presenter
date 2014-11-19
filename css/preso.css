@@ -356,3 +356,14 @@ html .syntaxhighlighter {
 html body div.ui-content{
 	overflow: scroll !important;
 }
+blockquote {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote cite {
+	display: block;
+	text-align: right;
+}
+#widgets ul {
+	margin: 1em;
+}

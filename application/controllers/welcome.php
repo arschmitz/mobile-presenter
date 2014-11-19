@@ -133,7 +133,7 @@ class Welcome extends CI_Controller {
 	}
 	private function presenter( $preso ){
 		$html = "";
-		$data = array( "title"=>$this->format_title( $preso ), "master"=>true, "preso"=>$preso );
+		$data = array( "title"=>$this->format_title( $preso ), "master"=>true, "preso"=>$preso, "follow" => false );
 
 		$this->load->helper( "directory", $data );
 		$this->load->helper( "presentation_tools" );
@@ -143,6 +143,7 @@ class Welcome extends CI_Controller {
 		$html .= "<div class='preso-presenter-wrapper'><iframe src='/".$preso."/follow'' class='preso-presenter-frame'></iframe></div>";
 		$html .= $this->load->view('popup', $data, true);
 		$html .= $this->load_notes( $preso );
+		$html .= $this->load->view('footer', $data, true);
 		$html .= "</body></html>";
 		echo $html;
 	}
